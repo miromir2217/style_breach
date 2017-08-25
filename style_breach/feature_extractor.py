@@ -5,10 +5,16 @@ import math
 from stop_words import get_stop_words
 
 
+###############
+# POS TAGGING #
+###############
 def get_pos_tagged_words(sentence):
     return nltk.pos_tag(sentence) if sentence != [] else []
 
 
+##############
+# STOP WORDS #
+##############
 def get_stop_words_in_sentence(sentence):
     stopwords = get_stop_words('en')
     stopwords_in_sentence = []
@@ -30,6 +36,9 @@ def get_non_stopwords_in_sentence(sentence):
     return words
 
 
+####################
+# WORD FREQUENCIES #
+####################
 def get_word_freq(word, sentence, sentences):
     most_popular_word = feature_helper.get_word_freq_in_sentences(feature_helper.get_most_popular_word(sentences), sentences)
     word_freq_all = feature_helper.get_word_freq_in_sentences(word, sentences)
