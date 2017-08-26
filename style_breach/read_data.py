@@ -1,12 +1,10 @@
-# imports
-
 import os
 
 
-# functions
-
 def read_files_from_folder(folder_name):
-    """ A function to return the names of every file in the given directory """
+    """
+    A function to return the names of every file in the given directory
+    """
     files = []
     for file in os.listdir(folder_name):
         if os.path.isdir(file):
@@ -16,8 +14,9 @@ def read_files_from_folder(folder_name):
 
 
 def read_sentences_from_file(filename):
-    """ This function accepts a path to a file and returns a list of all the sentences found in the file, each
-        paired with the number of the first character in the sentence in the file
+    """
+    This function accepts a path to a file and returns a list of all the sentences found in the file, each
+    paired with the number of the first character in the sentence in the file
     """
     sentence_start = 0
     char_count = -1

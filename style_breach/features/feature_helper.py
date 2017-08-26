@@ -22,6 +22,9 @@ def get_word_freq_in_sentences(word, sentences):
 
 
 def get_most_popular_word(sentences):
+    """
+    Returns the most widely-used word among the given sentences
+    """
     word_map = {}
     for sentence in sentences:
         for word in sentence:
@@ -38,6 +41,23 @@ def get_most_popular_word(sentences):
             max_freq_word = key
 
     return max_freq_word
+
+
+def get_symbol_freq_in_senteces(symbol, sentences):
+    """
+
+    :param symbol: The symbol which frequency we calculater
+    :param sentences: a list of the sentences, representing the document / search space
+    :return: the number of occurrences of the given symbol among the words in the search space.
+    """
+    freq = 0
+    for sentence in sentences:
+        for w in sentence:
+            for char in w:
+                if char == symbol:
+                    freq += 1
+
+    return freq
 
 
 def get_punct_symbols():

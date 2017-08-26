@@ -1,8 +1,9 @@
-import nltk
-import feature_helper
 import math
 
+import nltk
 from stop_words import get_stop_words
+
+from features import feature_helper
 
 
 ###############
@@ -47,14 +48,11 @@ def get_word_freq(word, sentence, sentences):
     return math.log2(float(most_popular_word / (word_freq_all - word_freq + 1)))
 
 
-def get_punctuation_freq(sentence):
-    punct_freq = {}
+def get_punctuation_freq(sentence, sentences):
+    symbol_freq = {}
     for symbol in feature_helper.get_punct_symbols():
-        punct_freq[symbol] = 0
+        freq_in_sentence = feature_helper.get_symbol_freq_in_senteces(symbol, [sentence])
+        freq_in_doc = feature_helper.get_symbol_freq_in_senteces(symbol, sentences)
+        symbol_freq[symbol] = freq_in_sentence / (1 if freq_in_doc == 0 else freq_in_doc)
 
-    for word in sentence:
-        for char in word:
-            if char in punct_freq:
-                punct_freq[char] += 1
-
-    return punct_freq
+    return symbol_freq

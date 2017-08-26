@@ -1,14 +1,14 @@
-def dynamic_clustering(vectors, distance_func):
+def knapsack_clustering(vectors, distance_func):
     """
-    Method for clustering based on dynamic programming
+    Method for clustering based on dynamic programming's famous "Knapsack problem"
 
     :param vectors: the input feature vectors
     :param distance_func: the function to calculate the distance between the vectors
     :return: an array of the clusters assigned
     """
     n = len(vectors)
-    clusters = []
-    cluster_dists = []
+    clusters = []  # every cluster keeps information about the previous cluster chosen for the best score
+    cluster_dists = []  # the best score computed for the data clustered up to the current vector (the row number)
     for i in range(n):
         clusters.append([])
         cluster_dists.append([])
@@ -51,6 +51,9 @@ def dynamic_clustering(vectors, distance_func):
 
 
 def get_distances(vectors, distance_func):
+    """
+    Pre-computes the distance between each two vectors
+    """
     empty_vec = []
     for i in range(len(vectors[0])):
         empty_vec.append(0)
@@ -71,6 +74,9 @@ def get_distances(vectors, distance_func):
 
 
 def get_avg_cluster_score(distances, left, right):
+    """
+    Computes the score average for the cluster, formed by the vectors with indices between "left" and "right"
+    """
     if left == right:
         return distances[left][right]
 
