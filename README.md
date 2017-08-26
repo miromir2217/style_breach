@@ -16,4 +16,4 @@ where:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;significance of the order of the sentences  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-cosine: a cosine similarity function from Scipy  
 &nbsp;&nbsp;&nbsp;&nbsp;[-show-truth] - optional parameter that, if used, would print the expected results as well. Expects a file with the same  
-                    name as the input file, but with ".truth" extension found in the same folder as the input file  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name as the input file, but with ".truth" extension found in the same folder as the input file  
