@@ -131,10 +131,18 @@ for sentence in sentences:
     position += 1
     feature_vectors.append(sentence_to_vector(sentence, sentences, position))
 
-perform_custom_clustering(feature_vectors, distance)
-# perform_custom_clustering(feature_vectors, scidist.coside)
-# perform_k_means_clustering(vectors=feature_vectors, dist_func=distance, repeats=5, k=3)
-# perform_k_means_clustering(vectors=feature_vectors, dist_func=scidist.cosine, repeats=5, k=3)
-# perform_hierarchical_clustering(vectors=feature_vectors, dist_func=scidist.cosine)
+if '-dp' in sys.argv and '-dist' in sys.argv:
+    perform_custom_clustering(feature_vectors, distance)
+elif '-dp' in sys.argv and '-cosine' in sys.argv:
+    perform_custom_clustering(feature_vectors, scidist.coside)
+elif '-kmeans' in sys.argv and '-dist' in sys.argv:
+    perform_k_means_clustering(vectors=feature_vectors, dist_func=distance, repeats=3)
+elif '-kmeans' in sys.argv and '-cosine' in sys.argv:
+    perform_k_means_clustering(vectors=feature_vectors, dist_func=scidist.cosine, repeats=5, k=3)
+elif '-experimentall' in sys.argv and '-dist' in sys.argv:
+    perform_hierarchical_clustering(vectors=feature_vectors, dist_func=distance)
+elif '-experimental' in sys.argv and '-cosine' in sys.argv:
+    perform_hierarchical_clustering(vectors=feature_vectors, dist_func=scidist.cosine)
 
-show_truth(sys.argv[1])
+if '-show-truth' in sys.argv:
+    show_truth(sys.argv[1])
