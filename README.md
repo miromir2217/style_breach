@@ -5,6 +5,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;_style_breach.py <file> <-dp|-kmeans|-experimental> <-dist|-cosine> [-show-truth]_  
   
 where:  
+  
 &nbsp;&nbsp;&nbsp;&nbsp;__&lt;filename&gt;__ - the input document to be analysed  
 &nbsp;&nbsp;&nbsp;&nbsp;__&lt;-dp|-kmeans|-experimental&gt;__ - the algorithm that would be used  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__-dp__: a custom clustering algorithm with similar idea to the dynamic programming solution of the knapsack problem  
